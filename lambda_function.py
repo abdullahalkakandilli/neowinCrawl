@@ -95,7 +95,7 @@ def lambda_handler(event, context):
     getfile = s3.get_object(Bucket=bucketname, Key="neowincrawl.csv")
     #Only then you can write the data into the '/tmp' folder.
     rows = zip(title_list,link_list,body_list)
-    with open('/tmp/neowincrawl.csv', 'w') as f:
+    with open('/tmp/neowincrawl.csv', 'a') as f:
         writer = csv.writer(f)
         for row in rows:
             writer.writerow(row)
